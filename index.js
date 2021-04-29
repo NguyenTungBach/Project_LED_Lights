@@ -50,6 +50,62 @@ app.get('/admin/product/list', function (req,res) {
     // res.render('admin/product/list.ejs');
 });
 
+// Chi tiết sản phẩm
+app.get('/admin/product/detail', function (req,res) {
+    //res.send(req.query.id); // trả về yêu cầu id
+    Product.findById(req.query.id).then(function (data){
+        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
+        res.render('admin/product/detail.ejs',{
+            item: data
+        });
+    });
+    // res.render('admin/product/list.ejs');
+});
+
+// lấy sản phẩm cần sửa
+app.get('/admin/product/edit', function (req,res) {
+    //res.send(req.query.id); // trả về yêu cầu id
+    Product.findById(req.query.id).then(function (data){
+        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
+        res.render('admin/product/edit.ejs',{
+            item: data
+        });
+    });
+    // res.render('admin/product/list.ejs');
+});
+
+// gửi lại sản phẩm đã sửa
+app.post('/admin/product/edit', function (req,res) {
+    //res.send(req.query.id); // trả về yêu cầu id
+    Product.findByIdAndUpdate(req.query.id, req.body).then(function (data){
+        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
+            res.redirect('/admin/product/list');
+    });
+    // res.render('admin/product/list.ejs');
+});
+
+// lấy sản phẩm cần xóa
+app.get('/admin/product/delete', function (req,res) {
+    //res.send(req.query.id); // trả về yêu cầu id
+    Product.findById(req.query.id).then(function (data){
+        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
+        res.render('admin/product/delete.ejs',{
+            item: data
+        });
+    });
+    // res.render('admin/product/list.ejs');
+});
+
+// lấy sản phẩm cần xóa
+app.post('/admin/product/delete', function (req,res) {
+    //res.send(req.query.id); // trả về yêu cầu id
+    Product.findByIdAndDelete(req.query.id).then(function (data){
+        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
+        res.redirect('/admin/product/list');
+    });
+    // res.render('admin/product/list.ejs');
+});
+
 // trả về form
 app.get('/admin/product/create', function (req,res) {
     res.render('admin/product/form.ejs');
@@ -59,7 +115,8 @@ app.get('/admin/product/create', function (req,res) {
 app.post('/admin/product/create', function (req,res) {
     const create_product = new Product (req.body);
     create_product.save().then(function (){
-        res.send('Success');
+        // res.send('Success');
+        res.redirect('/admin/product/list');
     });
     // res.send(req.body);
 });

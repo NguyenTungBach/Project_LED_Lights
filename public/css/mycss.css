@@ -1,3 +1,7 @@
 .img-100px{
     width: 100px;
 }
+
+.poniter-help{
+    cursor: pointer;
+}
