@@ -224,3 +224,7 @@ app.post('/admin/product/delete-contact', function (req,res) {
 app.listen(port, function () {
     console.log(`Đã chạy http://localhost:${port}`)
 })
+
+app.listen(process.env.PORT, function () {
+    console.log(`ở cổng khác tại http://localhost:${port}`)
+})
