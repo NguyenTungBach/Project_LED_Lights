@@ -221,7 +221,7 @@ app.post('/admin/product/delete-contact', function (req,res) {
 
 //CONTACT END
 
-app.listen(port, function () {
+app.listen(process.env.PORT || port, function () {
     console.log(`Đã chạy http://localhost:${port}`)
 })
 
