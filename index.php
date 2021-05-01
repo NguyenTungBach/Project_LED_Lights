@@ -1,1 +1,0 @@
-<?php include_once("admin/product/list.ejs"); ?>

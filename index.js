@@ -42,7 +42,7 @@ app.get('/admin/product/dashboard', function (req,res) {
 
 // LIST START
 // trả về list, tức là lấy danh sách sản phẩm
-app.get('/admin/product/list', function (req,res) {
+app.get('/', function (req,res) {
     Product.find().then(function (data){
        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về từ form chưa
         res.render('admin/product/list.ejs',{
