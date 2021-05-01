@@ -28,7 +28,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Are you sure delete Product</h4>
+                        <h4 class="card-title">Detail Contact</h4>
                     </div>
                     <div class="card-body">
                         <form action="#">
@@ -37,7 +37,7 @@
                                     <div class="form-group">
                                         <label>Name Product</label>
                                         <div>
-                                            <%= item.name %>
+                                            <%= contact.name %>
                                         </div>
                                     </div>
                                 </div>
@@ -45,39 +45,9 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Description</label>
+                                        <label>Email</label>
                                         <div>
-                                            <%= item.description%>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 ">
-                                    <div class="form-group">
-                                        <label>Category</label>
-                                        <div>
-                                            <%= item.category %>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 ">
-                                    <div class="form-group">
-                                        <label>Key Word</label>
-                                        <div>
-                                            <%= item.key %>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 ">
-                                    <div class="form-group">
-                                        <label>Trademark</label>
-                                        <div>
-                                            <%= item.trademark %>
+                                            <%= contact.email%>
                                         </div>
                                     </div>
                                 </div>
@@ -85,45 +55,19 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Price</label>
+                                        <label>Subject</label>
                                         <div>
-                                            <%= item.price %>
+                                            <%= contact.subject %>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-10 ">
+                                <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Thumbnail</label>
+                                        <label>Subject</label>
                                         <div>
-                                            <img class="img-thumbnail w-50" src="<%= item.thumbnail %>" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row float-left">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Thumbnail small 1</label>
-                                        <div>
-                                            <img class="img-thumbnail" src="<%= item.thumbnail_sm_1 %>" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Thumbnail small 2</label>
-                                        <div>
-                                            <img class="img-thumbnail" src="<%= item.thumbnail_sm_2 %>" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 ">
-                                    <div class="form-group">
-                                        <label>Thumbnail small 3</label>
-                                        <div>
-                                            <img class="img-thumbnail" src="<%= item.thumbnail_sm_3 %>" alt="">
+                                            <%= contact.messeage %>
                                         </div>
                                     </div>
                                 </div>
@@ -133,12 +77,10 @@
                         </form>
                         <div class="row">
                             <div class="card-footer">
-                                <form action="/admin/product/delete?id=<%= item._id%>" method="post">
-                                    <div class="form-group">
-                                        <button type="" class="poniter-help btn btn-danger btn-fill">Yes Delete It</button>
-                                        <a href="/admin/product/list"><button type="button" class="poniter-help btn btn-info btn-fill">No Back to list</button></a>
-                                    </div>
-                                </form>
+                                <div class="form-group">
+                                    <a href="/admin/product/contact"><button class="poniter-help btn btn-info btn-fill">Back to list</button></a>
+                                    <a href="/admin/product/delete-contact?id=<%= contact._id%>"><button class="poniter-help btn btn-danger btn-fill">Delete</button></a>
+                                </div>
                             </div>
                         </div>
                     </div>

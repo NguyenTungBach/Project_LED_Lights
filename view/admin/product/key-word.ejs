@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../../../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Light Bootstrap Dashboard - Free Bootstrap 4 Admin Dashboard by Creative Tim</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="../../../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../../assets/css/light-bootstrap-dashboard.css?v=2.0.0 " rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="../../../assets/css/demo.css" rel="stylesheet" />
+    <link href="../../../css/mycss.css" rel="stylesheet" />
+</head>
+<body>
+<%-include('../partial/left-menu.ejs')%>
+<%-include('../partial/header.ejs')%>
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card strpied-tabled-with-hover">
+                    <div class="card-header ">
+                        <h4 class="card-title">List Product</h4>
+                        <input type="text" class="pull-right form-control w-25"  id="search" placeholder="Type to search table...">
+                    </div>
+
+                    <div id="mytable" class="card-body table-full-width table-responsive">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                            <th>STT</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Key Word</th>
+                            <th>Trademark</th>
+                            <th>Thumbnail</th>
+                            <th>Action</th>
+                            </thead>
+                            <tbody>
+                            <% for (var i = 0 ; i < list.length; i++) {
+                            %>
+                                <tr>
+                                    <td><%= i+1 %></td>
+                                    <td><%= list[i].name %></td>
+                                    <td><%= list[i].price %></td>
+                                    <td><a href="/admin/product/list/category?category=<%= list[i].category%>"><%= list[i].category %></a></td>
+                                    <td><a href="/admin/product/list/key-word?key=<%= list[i].key%>"><%= list[i].key %></a></td>
+                                    <td><a href="/admin/product/list/trademark?trademark=<%= list[i].trademark%>"><%= list[i].trademark %></a></td>
+                                    <td><img class="img-thumbnail img-100px" src="<%= list[i].thumbnail %>" alt=""></td>
+                                    <td>
+                                        <a class="mr-3" href="/admin/product/detail?id=<%= list[i]._id%>" role="button" title="View detail">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                            </svg>
+                                        </a>
+                                        <a class=" mr-3" href="/admin/product/edit?id=<%= list[i]._id%>" role="button" title="Edit">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wrench" viewBox="0 0 16 16">
+                                                <path d="M.102 2.223A3.004 3.004 0 0 0 3.78 5.897l6.341 6.252A3.003 3.003 0 0 0 13 16a3 3 0 1 0-.851-5.878L5.897 3.781A3.004 3.004 0 0 0 2.223.1l2.141 2.142L4 4l-1.757.364L.102 2.223zm13.37 9.019.528.026.287.445.445.287.026.529L15 13l-.242.471-.026.529-.445.287-.287.445-.529.026L13 15l-.471-.242-.529-.026-.287-.445-.445-.287-.026-.529L11 13l.242-.471.026-.529.445-.287.287-.445.529-.026L13 11l.471.242z"/>
+                                            </svg>
+                                        </a>
+                                        <a href="/admin/product/delete?id=<%= list[i]._id%>" role="button" title="Delete">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                            </svg>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <% }
+                            %>
+                            </tbody>
+                            <thead>
+                            <th>STT</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Key Word</th>
+                            <th>Trademark</th>
+                            <th>Thumbnail</th>
+                            <th>Action</th>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%-include('../partial/footer.ejs')%>
+</body>
+<script src="../../../assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="../../../assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="../../../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="../../../assets/js/plugins/bootstrap-switch.js"></script>
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!--  Chartist Plugin  -->
+<script src="../../../assets/js/plugins/chartist.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="../../../assets/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
+<script src="../../../assets/js/light-bootstrap-dashboard.js?v=2.0.0 " type="text/javascript"></script>
+<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
+<script src="../../../assets/js/demo.js"></script>
+<!--<script type="text/javascript">-->
+<!--    $(document).ready(function() {-->
+<!--        // Javascript method's body can be found in ../../assets/js/demos.js-->
+<!--        demo.initDashboardPageCharts();-->
+
+<!--        demo.showNotification();-->
+
+<!--    });-->
+<!--</script>-->
+<script>
+    // Write on keyup event of keyword input element
+    $(document).ready(function(){
+        $("#search").keyup(function(){
+            _this = this;
+            // Show only matching TR, hide rest of them
+            $.each($("#mytable tbody tr"), function() {
+                if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1){ // tìm đến tất cả chuỗi trong mỗi SELECTER mà có giá trị -1 tức là không tồn tại
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            });
+        });
+    });
+</script>
+</html>

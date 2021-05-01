@@ -4,5 +4,11 @@ module.exports = mongoose.model('Product', {
     name: String,
     description: String,
     price: Number,
-    thumbnail:String
+    category: String,
+    key: String,
+    trademark:String,
+    thumbnail:String,
+    thumbnail_sm_1: String,
+    thumbnail_sm_2: String,
+    thumbnail_sm_3: String
 });

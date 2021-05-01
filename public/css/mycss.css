@@ -5,3 +5,26 @@
 .poniter-help{
     cursor: pointer;
 }
+
+.error{
+    color: red !important;
+}
+
+.background-content{
+    background-image: url("../../img/background-contact.jpg");
+}
+
+.background-content-border{
+    background-color: white;
+}
+
+/*Tạo bảng scroll mini table cho admin START*/
+.my-custom-scrollbar {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+}
+.table-wrapper-scroll-y {
+    display: block;
+}
+/*Tạo bảng scroll mini table cho admin END*/

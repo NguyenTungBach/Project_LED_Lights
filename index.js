@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose'); // Nhúng thư viện mongoose
 const Product = require('./models/product');
+const Contact = require('./models/contact');
 const app = express();
 const port = 3000;
 
@@ -39,11 +40,48 @@ app.get('/admin/product/dashboard', function (req,res) {
     res.render('admin/product/dashboard.ejs');
 });
 
+// LIST START
 // trả về list, tức là lấy danh sách sản phẩm
 app.get('/admin/product/list', function (req,res) {
     Product.find().then(function (data){
        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về từ form chưa
         res.render('admin/product/list.ejs',{
+            list: data
+        });
+    });
+    // res.render('admin/product/list.ejs');
+});
+
+// tìm kiếm theo danh mục Category
+app.get('/admin/product/list/category', function (req,res) {
+    // res.send(req.query.category); // trả về yêu cầu category
+    Product.find({category: req.query.category}).then(function (data){
+        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
+        res.render('admin/product/category.ejs',{
+            list: data
+        });
+    });
+    // res.render('admin/product/list.ejs');
+});
+
+// tìm kiếm theo key word
+app.get('/admin/product/list/key-word', function (req,res) {
+    // res.send(req.query.key); // trả về yêu cầu category
+    Product.find({key: req.query.key}).then(function (data){
+        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
+        res.render('admin/product/key-word.ejs',{
+            list: data
+        });
+    });
+    // res.render('admin/product/list.ejs');
+});
+
+// tìm kiếm theo thương hiệu trademark
+app.get('/admin/product/list/trademark', function (req,res) {
+    // res.send(req.query.trademark); // trả về yêu cầu category
+    Product.find({trademark: req.query.trademark}).then(function (data){
+        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
+        res.render('admin/product/trademark.ejs',{
             list: data
         });
     });
@@ -96,7 +134,7 @@ app.get('/admin/product/delete', function (req,res) {
     // res.render('admin/product/list.ejs');
 });
 
-// lấy sản phẩm cần xóa
+// Xóa sản phẩm rồi về trang chủ list
 app.post('/admin/product/delete', function (req,res) {
     //res.send(req.query.id); // trả về yêu cầu id
     Product.findByIdAndDelete(req.query.id).then(function (data){
@@ -120,6 +158,68 @@ app.post('/admin/product/create', function (req,res) {
     });
     // res.send(req.body);
 });
+// LIST END
+
+//CONTACT START
+// trả về trang contact
+app.get('/client/contact', function (req,res) {
+    res.render('client/page/client-contact.ejs');
+});
+
+// trả về những phần đã nhập trong contact từ client
+app.post('/client/contact', function (req,res) {
+    const contact = new Contact (req.body);
+    contact.save().then(function (){ // gủi lên database
+        // res.send(req.body);
+        res.redirect('/admin/product/contact');
+    });
+});
+
+// trả về những phần đã nhập trong contact cho admin
+app.get('/admin/product/contact', function (req,res) {
+    Contact.find().then(function (data){
+        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
+        res.render('admin/product/notifications.ejs',{
+            contact: data
+        });
+    });
+});
+
+// Thông tin chi tiết của 1 contact
+app.get('/admin/product/info-notifications', function (req,res) {
+    //res.send(req.query.id); // trả về yêu cầu id
+    Contact.findById(req.query.id).then(function (data){
+        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
+        res.render('admin/product/info-notifications.ejs',{
+            contact: data
+        });
+    });
+    // res.render('admin/product/list.ejs');
+});
+
+//Tạo trang xóa
+app.get('/admin/product/delete-contact', function (req,res) {
+    //res.send(req.query.id); // trả về yêu cầu id
+    Contact.findById(req.query.id).then(function (data){
+        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
+        res.render('admin/product/delete-contact.ejs',{
+            contact: data
+        });
+    });
+    // res.render('admin/product/list.ejs');
+});
+
+//trường hợp nếu là contact Đểu thì xóa rồi quay về trang danh sách contact
+app.post('/admin/product/delete-contact', function (req,res) {
+    //res.send(req.query.id); // trả về yêu cầu id
+    Contact.findByIdAndDelete(req.query.id).then(function (data){
+        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
+        res.redirect('/admin/product/contact');
+    });
+    // res.render('admin/product/list.ejs');
+});
+
+//CONTACT END
 
 app.listen(port, function () {
     console.log(`Đã chạy http://localhost:${port}`)

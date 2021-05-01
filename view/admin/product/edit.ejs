@@ -49,6 +49,82 @@
                                 </div>
                             </div>
                             <div class="row">
+                                <div class="col-md-4 ">
+                                    <label>Category</label>
+                                    <div class=" table-wrapper-scroll-y my-custom-scrollbar">
+                                        <table class="table table-striped mb-0">
+                                            <tr>
+                                                <th>STT</th>
+                                                <th>Name Category</th>
+                                                <th>Check</th>
+                                            </tr>
+                                            <tr>
+                                                <td >1</td>
+                                                <td>Bulbs</td>
+                                                <td><input type="radio" class="checkbox" name="category" value="Bulbs" checked></td>
+                                            </tr>
+                                            <tr>
+                                                <td >2</td>
+                                                <td>Spot Lights</td>
+                                                <td><input type="radio" class="checkbox" name="category" value="Spot Lights"></td>
+                                            </tr>
+                                            <tr>
+                                                <td >3</td>
+                                                <td>Decoration Lights</td>
+                                                <td><input type="radio" class="checkbox" name="category" value="Decoration Lights"></td>
+                                            </tr>
+                                            <tr>
+                                                <td >4</td>
+                                                <td>Smart Lights</td>
+                                                <td><input type="radio" class="checkbox" name="category" value="Smart Lights"></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 ">
+                                    <div class="form-group">
+                                        <label>Key Word</label>
+                                        <input value="<%= item.key %>" type="text" class="form-control" name="key" placeholder="Enter Key Word">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 ">
+                                    <label>Trademark</label>
+                                    <div class=" table-wrapper-scroll-y my-custom-scrollbar">
+                                        <table class="table table-striped mb-0">
+                                            <tr>
+                                                <th>STT</th>
+                                                <th>Name Trademark</th>
+                                                <th>Check</th>
+                                            </tr>
+                                            <tr>
+                                                <td >1</td>
+                                                <td>Coca</td>
+                                                <td><input type="radio" class="checkbox" name="trademark" value="Coca" checked></td>
+                                            </tr>
+                                            <tr>
+                                                <td >2</td>
+                                                <td>Pepsi</td>
+                                                <td><input type="radio" class="checkbox" name="trademark" value="Pepsi"></td>
+                                            </tr>
+                                            <tr>
+                                                <td >3</td>
+                                                <td>DC</td>
+                                                <td><input type="radio" class="checkbox" name="trademark" value="DC"></td>
+                                            </tr>
+                                            <tr>
+                                                <td >4</td>
+                                                <td>Mavel</td>
+                                                <td><input type="radio" class="checkbox" name="trademark" value="Mavel"></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Price</label>
@@ -61,6 +137,30 @@
                                     <div class="form-group">
                                         <label>Thumbnail</label>
                                         <input value="<%= item.thumbnail %>" type="text" class="form-control" name="thumbnail" placeholder="Link Thumbnail">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10 ">
+                                    <div class="form-group">
+                                        <label>Thumbnail small 1</label>
+                                        <input value="<%= item.thumbnail_sm_1 %>" type="text" class="form-control" name="thumbnail_sm_1" placeholder="Link Thumbnail">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10 ">
+                                    <div class="form-group">
+                                        <label>Thumbnail small 2</label>
+                                        <input value="<%= item.thumbnail_sm_2 %>" type="text" class="form-control" name="thumbnail_sm_2" placeholder="Link Thumbnail">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10 ">
+                                    <div class="form-group">
+                                        <label>Thumbnail small 3</label>
+                                        <input value="<%= item.thumbnail_sm_3 %>" type="text" class="form-control" name="thumbnail_sm_3" placeholder="Link Thumbnail">
                                     </div>
                                 </div>
                             </div>

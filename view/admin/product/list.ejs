@@ -23,8 +23,6 @@
 <%-include('../partial/left-menu.ejs')%>
 <%-include('../partial/header.ejs')%>
 
-
-
 <div class="content">
     <div class="container-fluid">
         <div class="row">
@@ -32,16 +30,20 @@
                 <div class="card strpied-tabled-with-hover">
                     <div class="card-header ">
                         <h4 class="card-title">List Product</h4>
+                        <input type="text" class="pull-right form-control w-25"  id="search" placeholder="Type to search table...">
                     </div>
-                    <div class="card-body table-full-width table-responsive">
+
+                    <div id="mytable" class="card-body table-full-width table-responsive">
                         <table class="table table-hover table-striped">
                             <thead>
-                            <th>STT</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Description</th>
-                            <th>Thumbnail</th>
-                            <th>Action</th>
+                                <th>STT</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>Key Word</th>
+                                <th>Trademark</th>
+                                <th>Thumbnail</th>
+                                <th>Action</th>
                             </thead>
                             <tbody>
                             <% for (var i = 0 ; i < list.length; i++) {
@@ -50,7 +52,9 @@
                                 <td><%= i+1 %></td>
                                 <td><%= list[i].name %></td>
                                 <td><%= list[i].price %></td>
-                                <td><%= list[i].description %></td>
+                                <td><a href="/admin/product/list/category?category=<%= list[i].category%>"><%= list[i].category %></a></td>
+                                <td><a href="/admin/product/list/key-word?key=<%= list[i].key%>"><%= list[i].key %></a></td>
+                                <td><a href="/admin/product/list/trademark?trademark=<%= list[i].trademark%>"><%= list[i].trademark %></a></td>
                                 <td><img class="img-thumbnail img-100px" src="<%= list[i].thumbnail %>" alt=""></td>
                                 <td>
                                     <a class="mr-3" href="/admin/product/detail?id=<%= list[i]._id%>" role="button" title="View detail">
@@ -76,12 +80,14 @@
                             %>
                             </tbody>
                             <thead>
-                            <th>STT</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Description</th>
-                            <th>Thumbnail</th>
-                            <th>Action</th>
+                                <th>STT</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>Key Word</th>
+                                <th>Trademark</th>
+                                <th>Thumbnail</th>
+                                <th>Action</th>
                             </thead>
                         </table>
                     </div>
@@ -118,4 +124,21 @@
 
 <!--    });-->
 <!--</script>-->
+<script>
+    // Write on keyup event of keyword input element
+    $(document).ready(function(){
+        $("#search").keyup(function(){
+            _this = this;
+            // Show only matching TR, hide rest of them
+            $.each($("#mytable tbody tr"), function() {
+                    if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1){ // tìm đến tất cả chuỗi trong mỗi SELECTER mà có giá trị -1 tức là không tồn tại
+                        $(this).hide();
+                    }
+                else {
+                        $(this).show();
+                }
+            });
+        });
+    });
+</script>
 </html>
