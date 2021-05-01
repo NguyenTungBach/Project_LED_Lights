@@ -64,7 +64,7 @@ app.get('/admin/product/list/category', function (req,res) {
     // res.render('admin/product/list.ejs');
 });
 
-// tìm kiếm theo key word
+// tìm kiếm theo từ khóa key word
 app.get('/admin/product/list/key-word', function (req,res) {
     // res.send(req.query.key); // trả về yêu cầu category
     Product.find({key: req.query.key}).then(function (data){
@@ -112,7 +112,7 @@ app.get('/admin/product/edit', function (req,res) {
     // res.render('admin/product/list.ejs');
 });
 
-// gửi lại sản phẩm đã sửa
+// sửa sản phẩm theo id rồi quay về trang chủ list
 app.post('/admin/product/edit', function (req,res) {
     //res.send(req.query.id); // trả về yêu cầu id
     Product.findByIdAndUpdate(req.query.id, req.body).then(function (data){
@@ -122,7 +122,7 @@ app.post('/admin/product/edit', function (req,res) {
     // res.render('admin/product/list.ejs');
 });
 
-// lấy sản phẩm cần xóa
+// lấy sản phẩm cần xóa để hỏi
 app.get('/admin/product/delete', function (req,res) {
     //res.send(req.query.id); // trả về yêu cầu id
     Product.findById(req.query.id).then(function (data){
@@ -166,7 +166,7 @@ app.get('/client/contact', function (req,res) {
     res.render('client/page/client-contact.ejs');
 });
 
-// trả về những phần đã nhập trong contact từ client
+// trả về những phần đã nhập trong contact từ client lên cho DATABASE
 app.post('/client/contact', function (req,res) {
     const contact = new Contact (req.body);
     contact.save().then(function (){ // gủi lên database
@@ -175,7 +175,7 @@ app.post('/client/contact', function (req,res) {
     });
 });
 
-// trả về những phần đã nhập trong contact cho admin
+// admin xem những contact gửi thông qua DATABASE
 app.get('/admin/product/contact', function (req,res) {
     Contact.find().then(function (data){
         // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
@@ -197,7 +197,7 @@ app.get('/admin/product/info-notifications', function (req,res) {
     // res.render('admin/product/list.ejs');
 });
 
-//Tạo trang xóa
+//Tạo trang hỏi có xóa contact không
 app.get('/admin/product/delete-contact', function (req,res) {
     //res.send(req.query.id); // trả về yêu cầu id
     Contact.findById(req.query.id).then(function (data){
@@ -209,7 +209,7 @@ app.get('/admin/product/delete-contact', function (req,res) {
     // res.render('admin/product/list.ejs');
 });
 
-//trường hợp nếu là contact Đểu thì xóa rồi quay về trang danh sách contact
+//Trường hợp nếu là contact Đểu thì xóa rồi quay về trang danh sách contact
 app.post('/admin/product/delete-contact', function (req,res) {
     //res.send(req.query.id); // trả về yêu cầu id
     Contact.findByIdAndDelete(req.query.id).then(function (data){
