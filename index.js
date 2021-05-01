@@ -117,7 +117,7 @@ app.post('/admin/product/edit', function (req,res) {
     //res.send(req.query.id); // trả về yêu cầu id
     Product.findByIdAndUpdate(req.query.id, req.body).then(function (data){
         // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
-            res.redirect('/admin/product/list');
+            res.redirect('/');
     });
     // res.render('admin/product/list.ejs');
 });
@@ -139,7 +139,7 @@ app.post('/admin/product/delete', function (req,res) {
     //res.send(req.query.id); // trả về yêu cầu id
     Product.findByIdAndDelete(req.query.id).then(function (data){
         // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
-        res.redirect('/admin/product/list');
+        res.redirect('/');
     });
     // res.render('admin/product/list.ejs');
 });
@@ -154,7 +154,7 @@ app.post('/admin/product/create', function (req,res) {
     const create_product = new Product (req.body);
     create_product.save().then(function (){
         // res.send('Success');
-        res.redirect('/admin/product/list');
+        res.redirect('/');
     });
     // res.send(req.body);
 });
