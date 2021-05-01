@@ -1,1 +1,1 @@
-<?php include_once("list.ejs"); ?>
+<?php include_once("admin/product/list.ejs"); ?>
