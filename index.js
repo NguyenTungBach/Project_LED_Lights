@@ -42,7 +42,7 @@ app.get('/admin/product/dashboard', function (req,res) {
 
 // LIST START
 // trả về list, tức là lấy danh sách sản phẩm
-app.get('/', function (req,res) {
+app.get('/admin/product/list', function (req,res) {
     Product.find().then(function (data){
        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về từ form chưa
         res.render('admin/product/list.ejs',{
@@ -117,7 +117,7 @@ app.post('/admin/product/edit', function (req,res) {
     //res.send(req.query.id); // trả về yêu cầu id
     Product.findByIdAndUpdate(req.query.id, req.body).then(function (data){
         // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
-            res.redirect('/');
+            res.redirect('/admin/product/list');
     });
     // res.render('admin/product/list.ejs');
 });
@@ -139,7 +139,7 @@ app.post('/admin/product/delete', function (req,res) {
     //res.send(req.query.id); // trả về yêu cầu id
     Product.findByIdAndDelete(req.query.id).then(function (data){
         // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
-        res.redirect('/');
+        res.redirect('/admin/product/list');
     });
     // res.render('admin/product/list.ejs');
 });
@@ -154,7 +154,7 @@ app.post('/admin/product/create', function (req,res) {
     const create_product = new Product (req.body);
     create_product.save().then(function (){
         // res.send('Success');
-        res.redirect('/');
+        res.redirect('/admin/product/list');
     });
     // res.send(req.body);
 });
@@ -220,6 +220,22 @@ app.post('/admin/product/delete-contact', function (req,res) {
 });
 
 //CONTACT END
+
+
+// PRODUCT CATEGORY START
+//File này sẽ đợi nhận code xong rồi mới gửi lại lên (lưu ý 6000 dòng code nên tốt nhất đừng động vào xem cho nó mệt vì đây là lấy trên mạng)
+app.get('/client/product-collection/collection', function (req,res) {
+    //res.send(req.query.id); // trả về yêu cầu id
+    res.render('client/product-collection/collection.ejs');
+    // Product.find().then(function (data){
+    //     // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về từ form chưa
+    //     res.render('/client/collection/collection.ejs',{
+    //         list: data
+    //     });
+    // });
+    // res.render('admin/product/list.ejs');
+});
+// PRODUCT CATEGORY END
 
 app.listen(process.env.PORT || port, function () {
     console.log(`Đã chạy http://localhost:${port}`)
