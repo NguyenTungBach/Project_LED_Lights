@@ -237,6 +237,11 @@ app.get('/client/product-collection/collection', function (req,res) {
 });
 // PRODUCT CATEGORY END
 
+// phần của NGUYÊN
+// GHI TÊN PHẦN LÀM
+
+
+
 app.listen(process.env.PORT || port, function () {
     console.log(`Đã chạy http://localhost:${port}`)
 })
