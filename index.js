@@ -161,10 +161,6 @@ app.post('/admin/product/create', function (req,res) {
 // LIST END
 
 //CONTACT START
-// trả về trang contact
-app.get('/client/contact', function (req,res) {
-    res.render('client/page/client-contact.ejs');
-});
 
 // trả về những phần đã nhập trong contact từ client lên cho DATABASE
 app.post('/client/contact', function (req,res) {
@@ -236,6 +232,25 @@ app.get('/client/product-collection/collection', function (req,res) {
     // res.render('admin/product/list.ejs');
 });
 // PRODUCT CATEGORY END
+
+
+
+//CLIENT  (phan nay danh cho Client)
+
+//Bach
+// trả về trang contact
+app.get('/client/contact', function (req,res) {
+    res.render('client/page/client-contact.ejs');
+});
+
+
+//Nguyen
+//Home
+app.get('/',(req,res)=>{
+    res.render('client/page/client-home')
+})
+
+
 
 app.listen(process.env.PORT || port, function () {
     console.log(`Đã chạy http://localhost:${port}`)
