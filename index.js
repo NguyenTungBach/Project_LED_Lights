@@ -168,12 +168,18 @@ app.get('/client/contact', function (req,res) {
     res.render('client/page/client-contact.ejs');
 });
 
+// trả về thông báo gửi contact thành công
+app.get('/client/contact/success', function (req,res) {
+    res.render('client/page/client-contact-success.ejs');
+});
+
 // trả về những phần đã nhập trong contact từ client lên cho DATABASE
 app.post('/client/contact', function (req,res) {
     const contact = new Contact (req.body);
     contact.save().then(function (){ // gủi lên database
         // res.send(req.body);
-        res.redirect('/admin/product/contact');
+        // res.render(alert('Send Success! We will reply to you later'));
+        res.redirect('/client/contact/success');
     });
 });
 
