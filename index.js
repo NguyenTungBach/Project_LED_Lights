@@ -244,12 +244,39 @@ app.post('/admin/product/delete-contact', function (req,res) {
 
 //CONTACT END
 
-//Nguyen
-//Home
+// PRODUCT CATEGORY START
+//File này sẽ đợi nhận code xong rồi mới gửi lại lên (lưu ý 6000 dòng code nên tốt nhất đừng động vào xem cho nó mệt vì đây là lấy trên mạng)
+app.get('/client/product-collection/collection', function (req,res) {
+    //res.send(req.query.id); // trả về yêu cầu id
+    res.render('client/product-collection/collection.ejs');
+    // Product.find().then(function (data){
+    //     // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về từ form chưa
+    //     res.render('/client/collection/collection.ejs',{
+    //         list: data
+    //     });
+    // });
+    // res.render('admin/product/list.ejs');
+});
+// PRODUCT CATEGORY END
+
+
+
+//CLIENT  (phan nay danh cho Client)
+
+//Bach
+// trả về trang contact
+app.get('/client/contact', function (req,res) {
+    res.render('client/page/client-contact.ejs');
+});
+
+
+//Nguyen-Home
+
 app.get('/',(req,res)=>{
     res.render('client/page/client-home')
 })
 
+<<<<<<< HEAD
 app.get('/client/products',(req,res)=>{
     // res.render('client/page/client-products');
     // res.send(req.query.id); // trả về yêu cầu id
@@ -260,6 +287,11 @@ app.get('/client/products',(req,res)=>{
         });
     });
     // res.render('admin/product/list.ejs');
+=======
+//Nguyen-products
+app.get('/client/products', (req,res)=>{
+    res.render('client/page/client-products')
+>>>>>>> 34d25139ef5f2569c7ace59671403b1f9aaafa45
 })
 
 
