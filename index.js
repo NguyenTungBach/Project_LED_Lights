@@ -160,7 +160,34 @@ app.post('/admin/product/create', function (req,res) {
 });
 // LIST END
 
+
+
+// PRODUCT CATEGORY START
+//File này sẽ đợi nhận code xong rồi mới gửi lại lên (lưu ý 6000 dòng code nên tốt nhất đừng động vào xem cho nó mệt vì đây là lấy trên mạng)
+app.get('/client/product-collection/collection', function (req,res) {
+    //res.send(req.query.id); // trả về yêu cầu id
+    res.render('client/product-collection/collection.ejs');
+    // Product.find().then(function (data){
+    //     // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về từ form chưa
+    //     res.render('/client/collection/collection.ejs',{
+    //         list: data
+    //     });
+    // });
+    // res.render('admin/product/list.ejs');
+});
+// PRODUCT CATEGORY END
+
+
+
+//CLIENT  (phan nay danh cho Client)
+
+//Bach
 //CONTACT START
+
+// trả về trang contact
+app.get('/client/contact', function (req,res) {
+    res.render('client/page/client-contact.ejs');
+});
 
 // trả về những phần đã nhập trong contact từ client lên cho DATABASE
 app.post('/client/contact', function (req,res) {
@@ -216,7 +243,6 @@ app.post('/admin/product/delete-contact', function (req,res) {
 });
 
 //CONTACT END
-
 
 // PRODUCT CATEGORY START
 //File này sẽ đợi nhận code xong rồi mới gửi lại lên (lưu ý 6000 dòng code nên tốt nhất đừng động vào xem cho nó mệt vì đây là lấy trên mạng)

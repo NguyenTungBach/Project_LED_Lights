@@ -9,41 +9,6 @@ body{
     padding: 0 60px;
 }
 
-
-
-/*Contact Page Bach*/
-.contact{
-    color: #000;
-}
-
-.img-100px{
-    width: 100px;
-}
-
-.poniter-help{
-    cursor: pointer;
-}
-
-.error{
-    color: red !important;
-}
-
-
-
-/*Tạo bảng scroll mini table cho admin START*/
-.my-custom-scrollbar {
-    position: relative;
-    height: 200px;
-    overflow: auto;
-}
-.table-wrapper-scroll-y {
-    display: block;
-}
-/*Tạo bảng scroll mini table cho admin END*/
-
-
-
-
 /*CSS Nguyen    -   FOOTER  */
 .footer-led{
     display: flex;
@@ -765,8 +730,6 @@ div#sticky {
     font-weight: bold;
 }
 
-/*Nguyen Products*/
-
 /*menu-product*/
 .menu-product{
     height: 200px;
@@ -777,19 +740,5 @@ div#sticky {
     height: 30px;
     background-color: #ff5050;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
