@@ -280,6 +280,10 @@ app.get('/',(req,res)=>{
 app.get('/client/products', (req,res)=>{
     res.render('client/page/client-products')
 })
+//Kien-Blog
+app.get('/client/blog', function (req,res){
+    res.render('client/page/client-blog')
+})
 
 
 app.listen(process.env.PORT || port, function () {
