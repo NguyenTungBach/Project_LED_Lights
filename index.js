@@ -244,12 +244,16 @@ app.get('/client/contact', function (req,res) {
 });
 
 
-//Nguyen
-//Home
+//Nguyen-Home
+
 app.get('/',(req,res)=>{
     res.render('client/page/client-home')
 })
 
+//Nguyen-products
+app.get('/client/products', (req,res)=>{
+    res.render('client/page/client-products')
+})
 
 
 app.listen(process.env.PORT || port, function () {

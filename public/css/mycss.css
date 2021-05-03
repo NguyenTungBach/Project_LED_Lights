@@ -765,8 +765,18 @@ div#sticky {
     font-weight: bold;
 }
 
+/*Nguyen Products*/
 
+/*menu-product*/
+.menu-product{
+    height: 200px;
+    background-color: #ff5050;
+}
 
+.toolbar-product{
+    height: 30px;
+    background-color: #ff5050;
+}
 
 
 
