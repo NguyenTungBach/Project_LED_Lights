@@ -238,11 +238,11 @@ app.get('/client/contact', function (req,res) {
 
 
 //Nguyen-Home
-
 app.get('/',function (req,res){
     res.render('client/page/client-home')
 });
 
+//Nguyen-products
 app.get('/client/products', function(req,res){
     // res.render('client/page/client-products');
     // res.send(req.query.id); // trả về yêu cầu id
@@ -302,6 +302,11 @@ app.get('/client/products/sort-number-desc', function(req,res){
     });
     // res.render('admin/product/list.ejs');
 });
+
+//Kien-Blog
+app.get('/client/blog', function (req,res){
+    res.render('client/page/client-blog')
+})
 
 app.listen(process.env.PORT || port, function () {
     console.log(`Đã chạy http://localhost:${port}`)
