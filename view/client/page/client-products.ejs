@@ -66,6 +66,10 @@
         </div>
         <div class="col-lg-10">
             <div class="featured">
+                <div><label for="">Search</label></div>
+                <div>
+                    <input type="text" class="mr-5" id="search" placeholder="Type to search table...">
+                </div>
                 <div><label for="">Sort by</label></div>
                 <div class="sort-by">
                     <select id="id-name-sort" onclick="sort_item();">
@@ -80,6 +84,7 @@
             <div class="row p-5">
                 <% for (var i = 0 ; i < list.length; i++) {
                 %>
+<!--                cần thận khi dùng class="col-lg-3" vì bách dùng nó để search-->
                 <div class="col-lg-3">
                     <div class="list-led">
                         <div class="prouct-img">

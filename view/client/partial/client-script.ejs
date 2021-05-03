@@ -53,4 +53,23 @@
         }
     })
 </script>
+
+<!--tìm kiếm của bách-->
+<script>
+    // Write on keyup event of keyword input element
+    $(document).ready(function(){
+        $("#search").keyup(function(){
+            _this = this;
+            // Show only matching TR, hide rest of them
+            $.each($(".col-lg-3"), function() {
+                if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1){ // tìm đến tất cả chuỗi trong mỗi SELECTER mà có giá trị -1 tức là không tồn tại
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            });
+        });
+    });
+</script>
 </html>
