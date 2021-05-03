@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 body{
@@ -730,15 +730,157 @@ div#sticky {
     font-weight: bold;
 }
 
-/*menu-product*/
-.menu-product{
-    height: 200px;
-    background-color: #ff5050;
+/*PRODUCTS-Nguyen*/
+
+
+/*Nút Sort By*/
+.featured{
+    display: flex;
+    justify-content: flex-end;
+
 }
 
-.toolbar-product{
+.featured label{
+    margin-right: 5px;
+    margin-top: 2px;
+    font-weight: 900;
+
+}
+
+.sort-by select{
     height: 30px;
+
+}
+
+.sort-by select:hover{
     background-color: #ff5050;
+    cursor: pointer;
 }
 
 
+
+
+/* Left-menu-product*/
+.left-menu-product{
+    position: relative;
+}
+.left-menu-product h4{
+    color: #FFFFFF;
+    font-size: 16px ;
+    margin: 0 0 15px;
+    padding: 12px 15px;
+    background-color: #ff5050;
+
+    font-weight: 900;
+}
+
+.left-menu-product ul li{
+    padding: 12px 0 12px 20px;
+    border-bottom: 1px dashed #e4e4e4;
+
+}
+
+.left-menu-product ul a{
+    text-decoration: unset;
+    display: block;
+}
+
+.left-menu-product ul a li{
+    font-size: 15px;
+    color: #000;
+    font-weight: 600;
+
+}
+
+.left-menu-product ul li:hover,.left-menu-product ul li a:hover {
+    background-color: #ff5050;
+    color: #FFF;
+
+}
+
+.left-menu-product #myLink{
+    display: none;
+}
+.left-menu-product a{
+    text-decoration: unset;
+    color: #FFF;
+}
+
+.left-menu-product .icon-pr{
+    display: block;
+    position: absolute;
+    top: 13px;
+    right: 10px;
+}
+
+.product-size ul{
+    display: flex;
+}
+
+.product-size ul li{
+    padding: 15px;
+    font-weight: 600;
+}
+
+.product-size ul li:hover{
+    cursor: pointer;
+}
+
+/*List den Led*/
+
+.list-led{
+    padding: 7px;
+    border: 5px solid #f8f8f8;
+    margin-bottom: 14px;
+}
+
+.prouct-img{
+    position: relative;
+
+}
+
+.prouct-img img{
+    width: 100%;
+}
+.icon-product{
+    text-align: center;
+}
+
+.icon-product a{
+    text-decoration: unset;
+}
+
+.icon-product a:hover{
+    border: 1px solid #000;
+}
+
+
+
+.product-infor{
+    width: 100%;
+    text-align: center;
+    display: block;
+    padding: 20px 10px 10px;
+}
+
+.product-infor a{
+    color: #000;
+    text-decoration: unset;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.product-infor p{
+    font-weight: bolder;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.product-infor .fa{
+    color: #ead137;
+}
+
+.product-infor a:hover{
+    color: #e91e63;
+}
