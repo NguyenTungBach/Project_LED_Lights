@@ -250,6 +250,17 @@ app.get('/',(req,res)=>{
     res.render('client/page/client-home')
 })
 
+app.get('/client/products',(req,res)=>{
+    // res.render('client/page/client-products');
+    // res.send(req.query.id); // trả về yêu cầu id
+    Product.find().then(function (data){
+        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
+        res.render('client/page/client-products',{
+            list: data
+        });
+    });
+    // res.render('admin/product/list.ejs');
+})
 
 
 app.listen(process.env.PORT || port, function () {
