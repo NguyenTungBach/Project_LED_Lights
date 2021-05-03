@@ -34,4 +34,23 @@
         }
     }
 </script>
+
+<!--Sắp xếp của bách-->
+<script>
+    $("#id-name-sort").click(function () {
+        var sort_item = $("#id-name-sort").val();
+        if (sort_item === "asc"){
+            window.location.href="/client/products/sort-a-z";
+        }
+        else if (sort_item === "desc"){
+            window.location.href="/client/products/sort-z-a";
+        }
+        else if (sort_item === "number-asc"){
+            window.location.href="/client/products/sort-number-asc";
+        }
+        else if (sort_item === "number-desc"){
+            window.location.href="/client/products/sort-number-desc";
+        }
+    })
+</script>
 </html>

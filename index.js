@@ -160,29 +160,8 @@ app.post('/admin/product/create', function (req,res) {
 });
 // LIST END
 
-
-
-// PRODUCT CATEGORY START
-//File này sẽ đợi nhận code xong rồi mới gửi lại lên (lưu ý 6000 dòng code nên tốt nhất đừng động vào xem cho nó mệt vì đây là lấy trên mạng)
-app.get('/client/product-collection/collection', function (req,res) {
-    //res.send(req.query.id); // trả về yêu cầu id
-    res.render('client/product-collection/collection.ejs');
-    // Product.find().then(function (data){
-    //     // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về từ form chưa
-    //     res.render('/client/collection/collection.ejs',{
-    //         list: data
-    //     });
-    // });
-    // res.render('admin/product/list.ejs');
-});
-// PRODUCT CATEGORY END
-
-
-
-//CLIENT  (phan nay danh cho Client)
-
 //Bach
-//CONTACT START
+//CONTACT ADMIN START
 
 // trả về trang contact
 app.get('/client/contact', function (req,res) {
@@ -242,53 +221,96 @@ app.post('/admin/product/delete-contact', function (req,res) {
     // res.render('admin/product/list.ejs');
 });
 
-//CONTACT END
-
-// PRODUCT CATEGORY START
-//File này sẽ đợi nhận code xong rồi mới gửi lại lên (lưu ý 6000 dòng code nên tốt nhất đừng động vào xem cho nó mệt vì đây là lấy trên mạng)
-app.get('/client/product-collection/collection', function (req,res) {
-    //res.send(req.query.id); // trả về yêu cầu id
-    res.render('client/product-collection/collection.ejs');
-    // Product.find().then(function (data){
-    //     // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về từ form chưa
-    //     res.render('/client/collection/collection.ejs',{
-    //         list: data
-    //     });
-    // });
-    // res.render('admin/product/list.ejs');
-});
-// PRODUCT CATEGORY END
+//CONTACT ADMIN END
 
 
 
 //CLIENT  (phan nay danh cho Client)
 
 //Bach
+//CONTACT CLIENT START
 // trả về trang contact
 app.get('/client/contact', function (req,res) {
     res.render('client/page/client-contact.ejs');
 });
 
+//CONTACT CLIENT END
+
 
 //Nguyen-Home
-
-app.get('/',(req,res)=>{
+app.get('/',function (req,res){
     res.render('client/page/client-home')
-})
+});
 
 //Nguyen-products
-app.get('/client/products', (req,res)=>{
-    res.render('client/page/client-products')
-})
+app.get('/client/products', function(req,res){
+    // res.render('client/page/client-products');
+    // res.send(req.query.id); // trả về yêu cầu id
+    Product.find().then(function (data){
+        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
+        res.render('client/page/client-products',{
+            list: data
+        });
+    });
+    // res.render('admin/product/list.ejs');
+});
+
+app.get('/client/products/sort-a-z', function(req,res){
+    // res.render('client/page/client-products');
+    // res.send(req.query.id); // trả về yêu cầu id
+    Product.find().sort([['name', 1]]).then(function (data){
+        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
+        res.render('client/page/client-products',{
+            list: data
+        });
+    });
+    // res.render('admin/product/list.ejs');
+});
+
+app.get('/client/products/sort-z-a', function(req,res){
+    // res.render('client/page/client-products');
+    // res.send(req.query.id); // trả về yêu cầu id
+    Product.find().sort([['name', -1]]).then(function (data){
+        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
+        res.render('client/page/client-products',{
+            list: data
+        });
+    });
+    // res.render('admin/product/list.ejs');
+});
+
+app.get('/client/products/sort-number-asc', function(req,res){
+    // res.render('client/page/client-products');
+    // res.send(req.query.id); // trả về yêu cầu id
+    Product.find().sort([['price', 1]]).then(function (data){
+        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
+        res.render('client/page/client-products',{
+            list: data
+        });
+    });
+    // res.render('admin/product/list.ejs');
+});
+
+app.get('/client/products/sort-number-desc', function(req,res){
+    // res.render('client/page/client-products');
+    // res.send(req.query.id); // trả về yêu cầu id
+    Product.find().sort([['price', -1]]).then(function (data){
+        // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
+        res.render('client/page/client-products',{
+            list: data
+        });
+    });
+    // res.render('admin/product/list.ejs');
+});
+
 //Kien-Blog
 app.get('/client/blog', function (req,res){
     res.render('client/page/client-blog')
 })
 
-
 app.listen(process.env.PORT || port, function () {
     console.log(`Đã chạy http://localhost:${port}`)
-})
+});
 
 // app.listen(process.env.PORT, function () {
 //     console.log(`ở cổng khác tại http://localhost:${port}`)
