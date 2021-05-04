@@ -35,6 +35,26 @@
     }
 </script>
 
+<!--Khung hiện ẩn cho client-left-menu-products.ejs gồm Category và myTrademark của Bách-->
+<script>
+    function myCategory() {
+        var x = document.getElementById("myCategory");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    }
+    function myTrademark() {
+        var x = document.getElementById("myTrademark");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    }
+</script>
+
 <!--Sắp xếp của bách-->
 <script>
     $("#id-name-sort").click(function () {
