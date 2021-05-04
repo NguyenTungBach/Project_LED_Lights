@@ -245,7 +245,7 @@ app.get('/client/contact', function (req,res) {
 
 //Nguyen-Home
 app.get('/',function (req,res){
-    res.render('client/page/client-home')
+    res.render('client/page/client-home.ejs')
 });
 
 //Nguyen-products
@@ -254,7 +254,7 @@ app.get('/client/products', function(req,res){
     // res.send(req.query.id); // trả về yêu cầu id
     Product.find().then(function (data){
         // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
-        res.render('client/page/client-products',{
+        res.render('client/page/client-products.ejs',{
             list: data
         });
     });
@@ -266,7 +266,7 @@ app.get('/client/products/sort-a-z', function(req,res){
     // res.send(req.query.id); // trả về yêu cầu id
     Product.find().sort([['name', 1]]).then(function (data){
         // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
-        res.render('client/page/client-products',{
+        res.render('client/page/client-products.ejs',{
             list: data
         });
     });
@@ -278,7 +278,7 @@ app.get('/client/products/sort-z-a', function(req,res){
     // res.send(req.query.id); // trả về yêu cầu id
     Product.find().sort([['name', -1]]).then(function (data){
         // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
-        res.render('client/page/client-products',{
+        res.render('client/page/client-products.ejs',{
             list: data
         });
     });
@@ -290,7 +290,7 @@ app.get('/client/products/sort-number-asc', function(req,res){
     // res.send(req.query.id); // trả về yêu cầu id
     Product.find().sort([['price', 1]]).then(function (data){
         // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
-        res.render('client/page/client-products',{
+        res.render('client/page/client-products.ejs',{
             list: data
         });
     });
@@ -302,16 +302,96 @@ app.get('/client/products/sort-number-desc', function(req,res){
     // res.send(req.query.id); // trả về yêu cầu id
     Product.find().sort([['price', -1]]).then(function (data){
         // res.send(data); // kiểm tra xem sản phẩm đã đc lấy về chưa
-        res.render('client/page/client-products',{
+        res.render('client/page/client-products.ejs',{
             list: data
         });
     });
     // res.render('admin/product/list.ejs');
 });
 
+//Bach - CATEGORY
+//CATEGORY CLIENT START
+//CATEGORY Bulbs
+app.get('/client/products/category/bulbs', function(req,res){
+    Product.find({category: 'Bulbs'}).then(function (data){
+        res.render('client/page/client-products.ejs',{
+            list: data
+        });
+    });
+});
+
+//CATEGORY Spot Lights
+app.get('/client/products/category/spot-lights', function(req,res){
+    Product.find({category: 'Spot Lights'}).then(function (data){
+        res.render('client/page/client-products.ejs',{
+            list: data
+        });
+    });
+});
+
+//CATEGORY Decoration Lights
+app.get('/client/products/category/decoration-lights', function(req,res){
+    Product.find({category: 'Decoration Lights'}).then(function (data){
+        res.render('client/page/client-products.ejs',{
+            list: data
+        });
+    });
+});
+
+//CATEGORY Smart Lights
+app.get('/client/products/category/smart-lights', function(req,res){
+    Product.find({category: 'Smart Lights'}).then(function (data){
+        res.render('client/page/client-products.ejs',{
+            list: data
+        });
+    });
+});
+
+//CATEGORY CLIENT END
+
+//Bach - TRADEMARK
+//TRADEMARK CLIENT START
+//TRADEMARK Coca
+app.get('/client/products/trademark/coca', function(req,res){
+    Product.find({trademark: 'Coca'}).then(function (data){
+        res.render('client/page/client-products.ejs',{
+            list: data
+        });
+    });
+});
+
+//TRADEMARK Pepsi
+app.get('/client/products/trademark/pepsi', function(req,res){
+    Product.find({trademark: 'Pepsi'}).then(function (data){
+        res.render('client/page/client-products.ejs',{
+            list: data
+        });
+    });
+});
+
+//TRADEMARK DC
+app.get('/client/products/trademark/dc', function(req,res){
+    Product.find({trademark: 'DC'}).then(function (data){
+        res.render('client/page/client-products.ejs',{
+            list: data
+        });
+    });
+});
+
+//TRADEMARK Mavel
+app.get('/client/products/trademark/mavel', function(req,res){
+    Product.find({trademark: 'Mavel'}).then(function (data){
+        res.render('client/page/client-products.ejs',{
+            list: data
+        });
+    });
+});
+
+//TRADEMARK CLIENT END
+
 //Kien-Blog
 app.get('/client/blog', function (req,res){
-    res.render('client/page/client-blog')
+    res.render('client/page/client-blog.ejs')
 })
 
 app.listen(process.env.PORT || port, function () {

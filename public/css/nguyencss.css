@@ -798,9 +798,15 @@ div#sticky {
 
 }
 
-.left-menu-product #myLink{
+.left-menu-product #myCategory{
     display: none;
 }
+
+.left-menu-product #myTrademark{
+    display: none;
+}
+
+
 .left-menu-product a{
     text-decoration: unset;
     color: #FFF;

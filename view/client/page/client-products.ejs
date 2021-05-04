@@ -6,65 +6,7 @@
     <%- include('../partial/client-header.ejs') %>
 
     <h2 class="text-center mb-3 mt-5 title-content">Products</h2>
-    <div class="row">
-        <div class="col-lg-2">
-            <div class="left-menu-product">
-                <h4>Category</h4>
-                <ul id="myLink">
-                    <a href="">
-                        <li>Gateight</li>
-                    </a>
-                    <a href="">
-                        <li>Vintage</li>
-                    </a>
-                    <a href="">
-                        <li>Glitz Vintage</li>
-                    </a>
-                    <a href="">
-                        <li>Starry Night</li>
-                    </a>
-                    <a href="">
-                        <li>Royal Erado</li>
-                    </a>
-                    <a href="">
-                        <li>Bollards</li>
-                    </a>
-                </ul>
-                <a href="javascript:void(0);" onclick="myFunctionProduct()"><i class="fa fa-plus icon-pr"
-                                                                               aria-hidden="true"></i></a>
-            </div>
-            <div class="left-menu-product">
-                <h4>Shop By Size</h4>
-                <div class="product-size">
-                    <ul>
-                        <li>S</li>
-                        <li>M</li>
-                        <li>L</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="left-menu-product">
-                <h4>Category</h4>
-                <ul>
-                    <a href="">
-                        <li>Ajanta</li>
-                    </a>
-                    <a href="">
-                        <li>Altra</li>
-                    </a>
-                    <a href="">
-                        <li>WollWoll</li>
-                    </a>
-                    <a href="">
-                        <li>Vian</li>
-                    </a>
-                    <a href="">
-                        <li>WebelKart Erado</li>
-                    </a>
-
-                </ul>
-            </div>
-        </div>
+        <%- include('../partial/client-left-menu-product.ejs') %>
         <div class="col-lg-10">
             <div class="featured">
                 <div><label for="">Search</label></div>
@@ -123,8 +65,16 @@
 
 
 <script>
-    function myFunctionProduct() {
-        var x = document.getElementById("myLink");
+    function myCategory() {
+        var x = document.getElementById("myCategory");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    }
+    function myTrademark() {
+        var x = document.getElementById("myTrademark");
         if (x.style.display === "block") {
             x.style.display = "none";
         } else {
