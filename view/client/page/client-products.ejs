@@ -67,184 +67,58 @@
         </div>
         <div class="col-lg-10">
             <div class="featured">
+                <div><label for="">Search</label></div>
+                <div>
+                    <input type="text" class="mr-5 h-30" id="search" placeholder="Type to search table...">
+                </div>
                 <div><label for="">Sort by</label></div>
                 <div class="sort-by">
-                    <select name="" id="">
-                        <option value="">a-z</option>
-                        <option value="">z-a</option>
-                        <option value="">price, low to hight</option>
-                        <option value="">price, hight to low</option>
+                    <select class="h-30" id="id-name-sort" onclick="sort_item();">
+                        <option value="">--Select--</option>
+                        <option value="asc">a-z</option>
+                        <option value="desc">z-a</option>
+                        <option value="number-asc">price, low to hight</option>
+                        <option value="number-desc">price, hight to low</option>
                     </select>
                 </div>
             </div>
             <div class="row p-5">
-                <div class="col-lg-3">
-                    <div class="list-led">
-                        <div class="prouct-img">
-                            <img src="../../../img/products-client/product-1.webp" alt="">
-                            <div class="icon-product">
-                                <a href="" class="fa fa-shopping-cart btn btn-shop"></a>
-                                <a href="" class="fa fa-eye btn btn-shop"></a>
-                                <a href="" class="fa fa-heart btn btn-shop"></a>
+                <% for (var i = 0 ; i < list.length; i++) {
+                %>
+                    <!--                cần thận khi dùng class="col-lg-3" vì bách dùng nó để search-->
+                    <div class="col-lg-3">
+                        <div class="list-led">
+                            <div class="prouct-img">
+                                <img src="<%= list[i].thumbnail %>" alt="">
+                                <div class="icon-product">
+                                    <a href="" class="fa fa-shopping-cart btn btn-shop"></a>
+                                    <a href="" class="fa fa-eye btn btn-shop"></a>
+                                    <a href="" class="fa fa-heart btn btn-shop"></a>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <div class="product-infor ">
-                                <a href="">Mosaic Style Dome</a>
-                                <p>$530.00</p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="list-led">
-                        <div class="prouct-img">
-                            <img src="../../../img/products-client/product-1.webp" alt="">
-                            <div class="icon-product">
-                                <a href="" class="fa fa-shopping-cart btn btn-shop"></a>
-                                <a href="" class="fa fa-eye btn btn-shop"></a>
-                                <a href="" class="fa fa-heart btn btn-shop"></a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-infor ">
-                                <a href="">Mosaic Style Dome</a>
-                                <p>$530.00</p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                            <div>
+                                <div class="product-infor ">
+                                    <a href=""><%= list[i].name %></a>
+                                    <p><%= list[i].price %></p>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="list-led">
-                        <div class="prouct-img">
-                            <img src="../../../img/products-client/product-1.webp" alt="">
-                            <div class="icon-product">
-                                <a href="" class="fa fa-shopping-cart btn btn-shop"></a>
-                                <a href="" class="fa fa-eye btn btn-shop"></a>
-                                <a href="" class="fa fa-heart btn btn-shop"></a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-infor ">
-                                <a href="">Mosaic Style Dome</a>
-                                <p>$530.00</p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="list-led">
-                        <div class="prouct-img">
-                            <img src="../../../img/products-client/product-1.webp" alt="">
-                            <div class="icon-product">
-                                <a href="" class="fa fa-shopping-cart btn btn-shop"></a>
-                                <a href="" class="fa fa-eye btn btn-shop"></a>
-                                <a href="" class="fa fa-heart btn btn-shop"></a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-infor ">
-                                <a href="">Mosaic Style Dome</a>
-                                <p>$530.00</p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="list-led">
-                        <div class="prouct-img">
-                            <img src="../../../img/products-client/product-1.webp" alt="">
-                            <div class="icon-product">
-                                <a href="" class="fa fa-shopping-cart btn btn-shop"></a>
-                                <a href="" class="fa fa-eye btn btn-shop"></a>
-                                <a href="" class="fa fa-heart btn btn-shop"></a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-infor ">
-                                <a href="">Mosaic Style Dome</a>
-                                <p>$530.00</p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="list-led">
-                        <div class="prouct-img">
-                            <img src="../../../img/products-client/product-1.webp" alt="">
-                            <div class="icon-product">
-                                <a href="" class="fa fa-shopping-cart btn btn-shop"></a>
-                                <a href="" class="fa fa-eye btn btn-shop"></a>
-                                <a href="" class="fa fa-heart btn btn-shop"></a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-infor ">
-                                <a href="">Mosaic Style Dome</a>
-                                <p>$530.00</p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="list-led">
-                        <div class="prouct-img">
-                            <img src="../../../img/products-client/product-1.webp" alt="">
-                            <div class="icon-product">
-                                <a href="" class="fa fa-shopping-cart btn btn-shop"></a>
-                                <a href="" class="fa fa-eye btn btn-shop"></a>
-                                <a href="" class="fa fa-heart btn btn-shop"></a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-infor ">
-                                <a href="">Mosaic Style Dome</a>
-                                <p>$530.00</p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <% }
+                %>
             </div>
         </div>
     </div>
+</div>
+</div>
 
 
-    <%- include('../partial/client-Footer.ejs') %>
+<%- include('../partial/client-Footer.ejs') %>
 </div>
 
 
@@ -258,7 +132,6 @@
         }
     }
 </script>
+
 </body>
-
-
 <%- include('../partial/client-script') %>
