@@ -30,7 +30,8 @@
                         <li>Bollards</li>
                     </a>
                 </ul>
-                <a href="javascript:void(0);" onclick="myFunctionProduct()"><i class="fa fa-plus icon-pr" aria-hidden="true"></i></a>
+                <a href="javascript:void(0);" onclick="myFunctionProduct()"><i class="fa fa-plus icon-pr"
+                                                                               aria-hidden="true"></i></a>
             </div>
             <div class="left-menu-product">
                 <h4>Shop By Size</h4>
@@ -68,11 +69,11 @@
             <div class="featured">
                 <div><label for="">Search</label></div>
                 <div>
-                    <input type="text" class="mr-5" id="search" placeholder="Type to search table...">
+                    <input type="text" class="mr-5 h-30" id="search" placeholder="Type to search table...">
                 </div>
                 <div><label for="">Sort by</label></div>
                 <div class="sort-by">
-                    <select id="id-name-sort" onclick="sort_item();">
+                    <select class="h-30" id="id-name-sort" onclick="sort_item();">
                         <option value="">--Select--</option>
                         <option value="asc">a-z</option>
                         <option value="desc">z-a</option>
@@ -84,40 +85,40 @@
             <div class="row p-5">
                 <% for (var i = 0 ; i < list.length; i++) {
                 %>
-<!--                cần thận khi dùng class="col-lg-3" vì bách dùng nó để search-->
-                <div class="col-lg-3">
-                    <div class="list-led">
-                        <div class="prouct-img">
-                            <img src="<%= list[i].thumbnail %>" alt="">
-                            <div class="icon-product">
-                                <a href="" class="fa fa-shopping-cart btn btn-shop"></a>
-                                <a href="" class="fa fa-eye btn btn-shop"></a>
-                                <a href="" class="fa fa-heart btn btn-shop"></a>
+                    <!--                cần thận khi dùng class="col-lg-3" vì bách dùng nó để search-->
+                    <div class="col-lg-3">
+                        <div class="list-led">
+                            <div class="prouct-img">
+                                <img src="<%= list[i].thumbnail %>" alt="">
+                                <div class="icon-product">
+                                    <a href="" class="fa fa-shopping-cart btn btn-shop"></a>
+                                    <a href="" class="fa fa-eye btn btn-shop"></a>
+                                    <a href="" class="fa fa-heart btn btn-shop"></a>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <div class="product-infor ">
-                                <a href=""><%= list[i].name %></a>
-                                <p><%= list[i].price %></p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                            <div>
+                                <div class="product-infor ">
+                                    <a href=""><%= list[i].name %></a>
+                                    <p><%= list[i].price %></p>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                    <% }
-                    %>
-            </div>
-    </div>
+                <% }
+                %>
             </div>
         </div>
     </div>
+</div>
+</div>
 
 
-    <%- include('../partial/client-Footer.ejs') %>
+<%- include('../partial/client-Footer.ejs') %>
 </div>
 
 
